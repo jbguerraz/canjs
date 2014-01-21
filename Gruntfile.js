@@ -287,13 +287,13 @@ module.exports = function (grunt) {
 			options: {
 				jshintrc: true
 			},
-			lib: ['construct/construct.js']
+			lib: [ 'component/component.js', 'compute/compute.js', 'construct/construct.js', 'control/control.js',
+				'control/modified/modifier.js' ]
 		},
-		"jsbeautifier": {
-			files: ['construct/construct.js','map/map.js'],
+		jsbeautifier: {
+			files: '<%= jshint.lib %>',
 			options: {
-				config: ".jsbeautifyrc",
-
+				config: ".jsbeautifyrc"
 			}
 		}
 	});
@@ -309,6 +309,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('bitovi-tools');
 	grunt.loadNpmTasks('grunt-jsbeautifier');
 
+	grunt.registerTask('quality', ['jsbeautifier', 'jshint']);
 	grunt.registerTask('build', ['clean:build', 'builder', 'amdify', 'stealify', 'uglify', 'string-replace:version']);
 	grunt.registerTask('test', ['connect', 'build', 'testify', 'qunit']);
 	grunt.registerTask('default', ['build']);
