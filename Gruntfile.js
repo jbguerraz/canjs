@@ -288,7 +288,7 @@ module.exports = function (grunt) {
 				jshintrc: true
 			},
 			lib: [ 'component/component.js', 'compute/compute.js', 'construct/construct.js', 'control/control.js',
-				'control/modified/modifier.js' ]
+				'control/modified/modifier.js','map/map.js','map/setter/setter.js','map/list/list.js']
 		},
 		jsbeautifier: {
 			files: '<%= jshint.lib %>',
