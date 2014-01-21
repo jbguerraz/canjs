@@ -1,3 +1,4 @@
+/*global __dirname */
 var path = require('path');
 // Returns mappings for AMDify
 var getAmdifyMap = function (baseName) {
@@ -8,7 +9,7 @@ var getAmdifyMap = function (baseName) {
 	amdifyMap['can/can'] = 'can';
 
 	return amdifyMap;
-}
+};
 
 module.exports = function (grunt) {
 	var _ = grunt.util._;
@@ -69,7 +70,7 @@ module.exports = function (grunt) {
 					options: function (config) {
 						return {
 							dist: 'can.' + config
-						}
+						};
 					}
 				}
 			},
@@ -287,6 +288,13 @@ module.exports = function (grunt) {
 				jshintrc: true
 			},
 			lib: ['construct/construct.js']
+		},
+		"jsbeautifier": {
+			files: ['construct/construct.js','map/map.js'],
+			options: {
+				config: ".jsbeautifyrc",
+
+			}
 		}
 	});
 
@@ -299,6 +307,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-release-steps');
 	grunt.loadNpmTasks('grunt-shell');
 	grunt.loadNpmTasks('bitovi-tools');
+	grunt.loadNpmTasks('grunt-jsbeautifier');
 
 	grunt.registerTask('build', ['clean:build', 'builder', 'amdify', 'stealify', 'uglify', 'string-replace:version']);
 	grunt.registerTask('test', ['connect', 'build', 'testify', 'qunit']);

@@ -1,54 +1,56 @@
 {
-	"predef" : [
-
+	"globals": {
 		// Bitovi Tools
-		"steal",
-		"can",
+		"steal": true,
+		"can": true,
 
 		// Supported Libs
-		"jQuery",
-		"$",
-		"$$",
-		"DOJO",
-		"YUI",
-		"Zepto",
+		"Zepto": true,
 
 		// QUnit API
 		// http://docs.jquery.com/QUnit#API_documentation
-		"QUnit",
-		"test",
-		"asyncTest",
-		"expect",
-		"module",
-		"ok",
-		"equal",
-		"notEqual",
-		"deepEqual",
-		"notDeepEqual",
-		"strictEqual",
-		"notStrictEqual",
-		"raises",
-		"start",
-		"stop",
+		"QUnit": true,
+		"test": true,
+		"asyncTest": true,
+		"expect": true,
+		"module": true,
+		"ok": true,
+		"equal": true,
+		"notEqual": true,
+		"deepEqual": true,
+		"notDeepEqual": true,
+		"strictEqual": true,
+		"notStrictEqual": true,
+		"raises": true,
+		"start": true,
+		"stop": true
+	},
 
-		// Node.js and CommonJS keywords
-		"define",
-		"require",
-		"__dirname"
-
-	],
-
-	"browser": true,
+	//tighten
 	"curly": true,
-	"eqnull": true,
 	"eqeqeq": true,
-	"expr": true,
+	"freeze": true,
+	"indent": 2,
 	"latedef": true,
+	"newcap": true,
 	"noarg": true,
-	"smarttabs": true,
 	"undef": true,
-	"boss": true,
-	"evil": true
+	"unused": "vars",
+	"trailing": true,
+	"maxdepth": 3,
 
+	///jshint relax
 
+	"evil": true,
+	"loopfunc": true,
+
+	/// jshint environment
+
+	"jquery": true,
+	"dojo": true,
+	"mootools": true,
+	"yui": true,
+	"browser": true,
+	"phantom": true,
+	"rhino": true
 }
